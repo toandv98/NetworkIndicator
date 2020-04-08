@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/padding_16dp"
+    android:paddingEnd="@dimen/padding_16dp">
+
+    <TextView
+        android:id="@+id/tv_network_type"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableStart="@drawable/ic_signal_cellular"
+        android:drawableTint="@color/colorTextBold"
+        android:drawablePadding="@dimen/padding_8dp"
+        android:gravity="center|start"
+        android:textColor="@color/colorTextBold" />
+
+    <TextView
+        android:id="@+id/tv_down"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableStart="@drawable/ic_arrow_down"
+        android:drawableTint="@color/colorTextBold"
+        android:gravity="center|start"
+        android:textColor="@color/colorTextBold" />
+
+    <TextView
+        android:id="@+id/tv_up"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:drawableStart="@drawable/ic_arrow_up"
+        android:drawableTint="@color/colorTextBold"
+        android:gravity="center|start"
+        android:textColor="@color/colorTextBold" />
+
+</LinearLayout>
