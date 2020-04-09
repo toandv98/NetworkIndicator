@@ -1,30 +1,30 @@
 <resources>
-    <string name="app_name">Network Indicator</string>
-    <string name="unit_kbps">kB/s</string>
-    <string name="zero_unit_kbps">0 KB/s</string>
+    <string name="app_name" translatable="false">Simple Speed Indicator</string>
+    <string name="zero_unit_kbps" translatable="false">0 KB/s</string>
     <string name="channel_description">Network speed indicator</string>
     <string name="channel_name">Indicator</string>
-    <string name="switch_on">ON</string>
-    <string name="switch_off">OFF</string>
-    <string name="unit_format">%s %s</string>
-    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="switch_on" translatable="false">ON</string>
+    <string name="switch_off" translatable="false">OFF</string>
+    <string name="font_family_condensed" translatable="false">sans-serif-condensed</string>
     <string name="title_setting">Settings</string>
-    <string name="indicator_title">Speed indicator</string>
     <string name="hide_title">Hide when disconnected</string>
     <string name="hide_summary">Hide all when disconnected network</string>
-    <string name="pref_indicator">pref_indicator</string>
-    <string name="pref_hide">pref_hide</string>
-    <string name="pref_boot">pref_boot</string>
+    <string name="pref_hide" translatable="false">pref_hide</string>
+    <string name="pref_boot" translatable="false">pref_boot</string>
     <string name="boot_title">Start on boot</string>
     <string name="boot_summary">App will be started on boot</string>
     <string name="apps_is_running">Apps is running</string>
-    <string name="apps_has_stopped">Apps has stopped</string>
+    <string name="enable_indicator">Enable indicator</string>
     <string name="title_info">About</string>
     <string name="version_info">Version: 1.0.0</string>
-    <string name="about_app">\u2022 Network indicator is a simple app to display your internet speed on status bar.</string>
-    <string name="u2022_licenses">\u2022 Licenses</string>
-    <string name="open_source_licenses_label">\u2022 Open source licenses</string>
-    <string name="author">Created by Toan</string>
-    <string name="email">toandv62@wru.vn</string>
-    <string name="license_title">LICENCES</string>
+    <string name="about_app">\u2022 Simple Speed Indicator is a simple app to display your internet speed on status bar.</string>
+    <string name="open_source_licenses_label" translatable="false">\u2022 Open source licenses</string>
+    <string name="author" translatable="false">Created by Toan</string>
+    <string name="email" translatable="false">toandv62@wru.vn</string>
+    <string name="license_title" translatable="false">LICENCES</string>
+    <string name="label_wifi" translatable="false">Wifi</string>
+    <string name="label_cellular">Cellular</string>
+    <string name="pref_lock_screen" translatable="false">pref_lock_screen</string>
+    <string name="hid_lock_title">Hide from lock screen</string>
+    <string name="hide_from_lock_summary">Hide notification from lock screen</string>
 </resources>

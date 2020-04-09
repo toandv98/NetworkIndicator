@@ -2,6 +2,7 @@ package com.toandv.networkindicator.ui
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.Menu
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView(s: Bundle?) {
-
+        toolbar_main.overflowIcon?.setTint(Color.WHITE)
         setSupportActionBar(toolbar_main)
         if (s == null) {
             supportFragmentManager
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
         else -> {
             cancelAllJob(this)
-            tv_run.setText(R.string.apps_has_stopped)
+            tv_run.setText(R.string.enable_indicator)
         }
     }
 

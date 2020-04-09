@@ -14,6 +14,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         val hide = findPreference<SwitchPreferenceCompat>(getString(R.string.pref_hide))
         val boot = findPreference<SwitchPreferenceCompat>(getString(R.string.pref_boot))
+        val lock = findPreference<SwitchPreferenceCompat>(getString(R.string.pref_lock_screen))
 
         hide?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
             schedulerJob(requireContext())
@@ -23,7 +24,10 @@ class SettingsFragment : PreferenceFragmentCompat() {
             schedulerJob(requireContext())
             true
         }
-
+        lock?.setOnPreferenceChangeListener { _, _ ->
+            schedulerJob(requireContext())
+            true
+        }
     }
 
     companion object {

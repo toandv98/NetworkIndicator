@@ -12,10 +12,13 @@ object SchedulerUtils {
 
     @JvmStatic
     fun schedulerJob(context: Context) {
-        val builder = JobInfo.Builder(JOB_ID, ComponentName(context, SpeedService::class.java))
-        if (PreferenceHelper.isHideOnDisconnected(context)) builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-        if (PreferenceHelper.isStartOnBoot(context)) builder.setPersisted(true)
-        context.getSystemService(JobScheduler::class.java)?.schedule(builder.build())
+        JobInfo.Builder(JOB_ID, ComponentName(context, SpeedService::class.java)).apply {
+            when {
+                PreferenceHelper.isHideOnDisconnected(context) -> setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+                PreferenceHelper.isStartOnBoot(context) -> setPersisted(true)
+            }
+            context.getSystemService(JobScheduler::class.java)?.schedule(build())
+        }
     }
 
     @JvmStatic

@@ -7,15 +7,22 @@
         app:iconSpaceReserved="false">
 
         <SwitchPreferenceCompat
+            android:icon="@drawable/ic_visibility_off"
             app:defaultValue="true"
-            app:iconSpaceReserved="false"
             app:key="@string/pref_hide"
             app:summary="@string/hide_summary"
             app:title="@string/hide_title" />
 
         <SwitchPreferenceCompat
+            android:icon="@drawable/ic_screen_lock_portrait"
             app:defaultValue="true"
-            app:iconSpaceReserved="false"
+            app:key="@string/pref_lock_screen"
+            app:summary="@string/hide_from_lock_summary"
+            app:title="@string/hid_lock_title" />
+
+        <SwitchPreferenceCompat
+            android:icon="@drawable/ic_settings_power"
+            app:defaultValue="true"
             app:key="@string/pref_boot"
             app:summary="@string/boot_summary"
             app:title="@string/boot_title" />

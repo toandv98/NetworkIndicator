@@ -11,6 +11,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Icon
 import android.net.*
 import android.net.ConnectivityManager.NetworkCallback
+import android.net.NetworkCapabilities.*
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.N
 import android.os.Build.VERSION_CODES.O
@@ -18,6 +19,7 @@ import android.os.Handler
 import android.widget.RemoteViews
 import androidx.core.app.NotificationManagerCompat
 import com.toandv.networkindicator.R
+import com.toandv.networkindicator.data.PreferenceHelper.isHideFromLockScreen
 import com.toandv.networkindicator.data.PreferenceHelper.isRunning
 import com.toandv.networkindicator.data.Speed
 import com.toandv.networkindicator.utils.Constants.CHANNEL_INDICATOR
@@ -26,6 +28,7 @@ import com.toandv.networkindicator.utils.Constants.UNIT_KBPS
 import com.toandv.networkindicator.utils.SchedulerUtils.schedulerJob
 
 class SpeedService : JobService() {
+
     private var mLastTx: Long = 0
     private var mLastRx: Long = 0
     private var mLastMillis: Long = 0
@@ -45,9 +48,7 @@ class SpeedService : JobService() {
     override fun onStopJob(params: JobParameters): Boolean {
         mHandler.removeCallbacks(mRunnable)
         unregisterNetworkCallback()
-        if (isRunning(this)) {
-            schedulerJob(this)
-        }
+        if (isRunning(this)) schedulerJob(this)
         return true
     }
 
@@ -73,12 +74,12 @@ class SpeedService : JobService() {
             super.onCapabilitiesChanged(network, networkCapabilities)
             mRemoteViews?.apply {
                 when {
-                    networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) -> {
-                        setTextViewText(R.id.tv_network_type, "Wifi")
+                    networkCapabilities.hasTransport(TRANSPORT_WIFI) -> {
+                        setTextViewText(R.id.tv_network_type, getString(R.string.label_wifi))
                         setTextViewCompoundDrawables(R.id.tv_network_type, R.drawable.ic_wifi, 0, 0, 0)
                     }
-                    networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) -> {
-                        setTextViewText(R.id.tv_network_type, "Cellular")
+                    networkCapabilities.hasTransport(TRANSPORT_CELLULAR) -> {
+                        setTextViewText(R.id.tv_network_type, getString(R.string.label_cellular))
                         setTextViewCompoundDrawables(R.id.tv_network_type, R.drawable.ic_signal_cellular, 0, 0, 0)
                     }
                 }
@@ -103,12 +104,13 @@ class SpeedService : JobService() {
             setOnlyAlertOnce(true)
             setLocalOnly(true)
             setOngoing(true)
-            setVisibility(Notification.VISIBILITY_SECRET)
             setSound(Uri.EMPTY)
             when {
                 SDK_INT >= N -> setCustomContentView(mRemoteViews)
                 else -> setContent(mRemoteViews)
             }
+            setVisibility(if (isHideFromLockScreen(this@SpeedService))
+                Notification.VISIBILITY_SECRET else Notification.VISIBILITY_PUBLIC)
             startForeground(NOTIFICATION_ID, build())
         }
     }
@@ -152,7 +154,7 @@ class SpeedService : JobService() {
 
     private fun registerNetworkCallback() {
         val builder = NetworkRequest.Builder()
-        builder.addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+        builder.addCapability(NET_CAPABILITY_INTERNET)
         mConnectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         mConnectivityManager?.registerNetworkCallback(builder.build(), networkCallback)
     }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="channel_description">Hiển thị tốc độ mạng</string>
+    <string name="channel_name">Thông báo chính</string>
+    <string name="title_setting">Cài đặt</string>
+    <string name="hide_title">Ẩn khi ngắt mạng</string>
+    <string name="hide_summary">Ẩn  thông báo khi ngắt kết nối mạng</string>
+    <string name="boot_title">Bật khi khởi động</string>
+    <string name="boot_summary">Bật ứng dụng khi khởi động thiết bị</string>
+    <string name="apps_is_running">Ứng dụng đang chạy</string>
+    <string name="enable_indicator">Bật hiển thị tốc độ</string>
+    <string name="title_info">Thông tin</string>
+    <string name="version_info">Phiên bản: 1.0.0</string>
+    <string name="about_app">\u2022 Simple Speed Indicator là ứng dụng đơn giản, gọn nhẹ giúp hiển thị tốc độ mạng trên thanh trạng thái</string>
+    <string name="hid_lock_title">Ẩn trên màn hình khóa</string>
+    <string name="hide_from_lock_summary">Ẩn thông báo khỏi màn hình khóa</string>
+    <string name="label_cellular">Di động</string>
+</resources>

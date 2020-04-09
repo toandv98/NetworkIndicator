@@ -32,4 +32,10 @@ object PreferenceHelper {
         return PreferenceManager.getDefaultSharedPreferences(context)
                 .getBoolean(context.getString(R.string.pref_boot), true)
     }
+
+    @JvmStatic
+    fun isHideFromLockScreen(context: Context): Boolean {
+        return PreferenceManager.getDefaultSharedPreferences(context)
+                .getBoolean(context.getString(R.string.pref_lock_screen), true)
+    }
 }
