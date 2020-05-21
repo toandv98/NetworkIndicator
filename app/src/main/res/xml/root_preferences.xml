@@ -15,7 +15,7 @@
 
         <SwitchPreferenceCompat
             android:icon="@drawable/ic_screen_lock_portrait"
-            app:defaultValue="true"
+            app:defaultValue="false"
             app:key="@string/pref_lock_screen"
             app:summary="@string/hide_from_lock_summary"
             app:title="@string/hid_lock_title" />
